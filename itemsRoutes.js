@@ -2,16 +2,16 @@
 
 const express = require("express");
 
-const db = require("./fakeDb");
+const { items, Item } = require("./fakeDb");
 const router = new express.Router();
 
 router.get("/", function (req, res) {
   debugger;
-  return res.json(db.items);
+  return res.json(items);
 });
 
 router.post("/", function (req, res) {
-  const newItem = Item(req.body.name, req.body.price);
+  const newItem = new Item(req.body.name, req.body.price);
 
   newItem.add();
 

@@ -7,12 +7,13 @@ class Item {
   constructor(name, price) {
     this.name = name;
     this.price = price;
-  }
 
-  static add() {
     items.push(this);
   }
+
+  // static add() {
+  //   items.push(this);
+  // }
 }
 
-module.exports = { items };
-// module.exports = Item;
+module.exports = { items, Item };
