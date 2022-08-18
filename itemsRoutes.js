@@ -25,8 +25,6 @@ router.post("/", function (req, res) {
 // });
 
 router.get("/:name", function (req, res) {
-  // const item = items.find((i) => i["name"] === req.params.name);
-  // console.log(item)
   for (let item of items) {
     if (item["name"] === req.params.name) {
       return res.json(item);
@@ -36,8 +34,31 @@ router.get("/:name", function (req, res) {
 });
 
 
-// router.patch("/:name", function)
+router.patch("/:name", function (req, res) {
 
-// router.delete("/:name", function)
+  for (let item of items) {
+    if (item["name"] === req.params.name) {
+      item["name"] = req.body.name;
+      item["price"] = req.body.price;
+      return res.json(item);
+    }
+  }
+  return res.json("not here");
+});
+
+
+
+
+router.delete("/:name", function (req, res) {
+  // items.filter(function (ele) {
+  //   ele["name"] !== req.params.name;
+  // });
+  debugger
+  let itemIndex = items.indexOf(["req.params.name"])
+  items.splice(itemIndex, 1)
+  return res.json({ message: "Deleted" });
+});
+
+
 
 module.exports = router;
