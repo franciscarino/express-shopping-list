@@ -3,12 +3,14 @@ const items = [
   { name: "cheerios", price: 3.4 },
 ];
 
+
+
 class Item {
   constructor(name, price) {
     this.name = name;
     this.price = price;
 
-    items.push(this);
+    // items.push(this);
   }
 
   // static add() {
